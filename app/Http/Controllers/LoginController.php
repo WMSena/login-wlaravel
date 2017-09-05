@@ -15,6 +15,7 @@ class LoginController extends Controller
     function postLogin(Request $req)
     {
       $user= User::where('name', $req->user)->first();
+      $password= User::where('name', $req->user)->first();
       if($user->password !== $req->pass){
         return redirect('login')->with('error','Password Salah');
       }else{
