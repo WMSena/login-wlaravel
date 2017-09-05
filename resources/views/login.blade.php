@@ -10,7 +10,8 @@
 </head>
 <body>
 <div class="wrapper">
-    <form action="test.php">
+    <form action="{{url('/login')}}" method="post">
+    {{csrf_field()}}
         <div class="container">
         <i class="fa fa-envelope-o"></i>
                 <input type="text" name="user" id="user" class="form-log" placeholder="Email">
