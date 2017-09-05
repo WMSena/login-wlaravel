@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -11,9 +12,14 @@ class LoginController extends Controller
       return view('login');
     }
 
-
-    function PostLogin()
+    function postLogin(Request $req)
     {
-
+      $user= User::where('name', $req->user)->first();
+      $password= User::where('name', $req->user)->first();
+      if($user->password !== $req->pass){
+        return redirect('login')->with('error','Password Salah');
+      }else{
+         return redirect('/dashboard');
+      }
     }
 }
