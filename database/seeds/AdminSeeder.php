@@ -11,6 +11,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $this->command->line("Creating User...");
+
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'Users@gmail.com',
+            'password' => '1234',
+        ]);
     }
 }
